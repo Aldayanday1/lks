@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lembaga Kesejahteraan Sosial</title>
+    <link rel="stylesheet" href="landingpage.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
+  <body>
+    <section class="header">
+      <nav>
+        <a href="#" class="logo"><img src="../images/logo.png" alt="Logo" /></a>
+        <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="../login/login.html">LOGIN</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </nav>
+
+      <div class="text-box">
+        <h1>Selamat Datang</h1>
+        <p>Situs Resmi Lembaga Kesejahteraan Sosial Kota Yogyakarta</p>
+      </div>
+    </section>
+
+    <!-------- Tentang Kami -------->
+
+    <section class="news">
+      <h1>Tentang Kami</h1>
+      <p>Lembaga Kesejahteraan Sosial (LKS) Kota Yogyakarta berdedikasi untuk meningkatkan kesejahteraan masyarakat melalui berbagai program sosial yang inovatif dan berkelanjutan.</p>
+
+      <div class="row">
+        <div class="course-col">
+          <h3>Visi Kami</h3>
+          <p>Menjadi lembaga terdepan dalam mempromosikan kesejahteraan sosial di Kota Yogyakarta, dengan pendekatan yang holistik dan berfokus pada pemberdayaan masyarakat.</p>
+        </div>
+
+        <div class="course-col">
+          <h3>Misi Kami</h3>
+          <p>Melaksanakan program-program sosial yang bertujuan untuk meningkatkan kualitas hidup masyarakat, memberikan dukungan bagi kelompok rentan, dan mendorong partisipasi aktif seluruh lapisan masyarakat.</p>
+        </div>
+
+        <div class="course-col">
+          <h3>Nilai-Nilai Kami</h3>
+          <p>Komitmen, Inovasi, Keberlanjutan, Transparansi, dan Kerja Sama. Kami percaya bahwa dengan nilai-nilai ini, kami dapat mencapai tujuan kami untuk masyarakat yang lebih sejahtera.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-------- Logo WhatsApp -------->
+    <div class="whatsapp-container">
+      <a href="https://wa.me/6285184541785" target="_blank" class="whatsapp-float">
+        <img src="../images/whatsapp.png" alt="WhatsApp Logo" />
+      </a>
+      <div class="whatsapp-text">Contact Me on WhatsApp</div>
+    </div>
+
+    <!-- Notifikasi -->
+    <div id="notification"></div>
+
+    <!-------- JS for Toggle Menu -------->
+
+    <script>
+      var navLinks = document.getElementById("navLinks");
+      function showMenu() {
+        navLinks.style.right = "0";
+      }
+      function hideMenu() {
+        navLinks.style.right = "-200px";
+      }
+    </script>
+    <script src="landingpage.js"></script>
+  </body>
+</html>

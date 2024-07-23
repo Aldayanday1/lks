@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
+  <body>
+    <section class="header">
+      <nav>
+        <div class="logo-container">
+          <a href="#s" class="logo">
+            <img src="../images/logo.png" alt="Logo" />
+          </a>
+          <span class="brand-text">Dinas Sosial Kota Yogyakarta</span>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <ul>
+            <li><a href="#" id="logoutLink">Logout</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" id="menuIcon" onclick="toggleMenu()"></i>
+      </nav>
+    </section>
+
+    <section class="dashboard">
+      <div class="container">
+        <div class="header-section">
+          <h2>Daftar Pengguna</h2>
+          <button onclick="openAddUserModal()" class="btn-add-user">Tambah Pengguna</button>
+        </div>
+        <table id="userTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Role</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <!-- Tambahkan tbody untuk menyertakan baris data -->
+        </table>
+      </div>
+    </section>
+
+    <!-- Modal Tambah/Edit Pengguna -->
+    <div id="userModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeUserModal()">&times;</span>
+        <h2 id="modalTitle">Tambah Pengguna</h2>
+        <form id="userForm">
+          <input type="hidden" id="userId" />
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required />
+          <label for="password">Password:</label>
+          <div class="password-container">
+            <input type="password" id="password" name="password" required />
+            <i class="fa fa-eye" id="togglePassword" style="cursor: pointer; margin-left: -30px; margin-bottom: 10px"></i>
+          </div>
+          <label for="role">Role:</label>
+          <select id="role" name="role" required>
+            <option value="USER">User</option>
+            <option value="OPERATOR">Operator</option>
+            <!-- <option value="ADMIN">Admin</option> -->
+          </select>
+          <button type="submit" id="saveUserBtn">Simpan</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Konfirmasi Hapus Pengguna -->
+    <div id="deleteUserModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeDeleteUserModal()">&times;</span>
+        <h2>Konfirmasi Hapus Pengguna</h2>
+        <p>Apakah Anda yakin ingin menghapus pengguna ini?</p>
+        <div class="modal-buttons">
+          <button id="confirmDeleteBtn">Hapus</button>
+          <button onclick="closeDeleteUserModal()">Batal</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Konfirmasi Logout -->
+    <div id="logoutModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeLogoutModal()">&times;</span>
+        <h2>Konfirmasi Logout</h2>
+        <p>Apakah Anda yakin ingin logout?</p>
+        <button id="confirmLogoutBtn">Logout</button>
+        <button onclick="closeLogoutModal()">Batal</button>
+      </div>
+    </div>
+
+    <!-- Kontainer notifikasi -->
+    <div id="notification-container"></div>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
