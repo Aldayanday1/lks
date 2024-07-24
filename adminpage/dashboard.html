@@ -14,17 +14,18 @@
     <section class="header">
       <nav>
         <div class="logo-container">
-          <a href="#s" class="logo">
+          <a href="#" class="logo">
             <img src="../images/logo.png" alt="Logo" />
           </a>
           <span class="brand-text">Dinas Sosial Kota Yogyakarta</span>
         </div>
         <div class="nav-links" id="navLinks">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
           <ul>
             <li><a href="#" id="logoutLink">Logout</a></li>
           </ul>
         </div>
-        <i class="fa fa-bars" id="menuIcon" onclick="toggleMenu()"></i>
+        <i class="fa fa-bars" id="menuIcon" onclick="showMenu()"></i>
       </nav>
     </section>
 
@@ -99,6 +100,17 @@
 
     <!-- Kontainer notifikasi -->
     <div id="notification-container"></div>
+
+    <!-- Script for Toggle Menu -->
+    <script>
+      function showMenu() {
+        document.getElementById("navLinks").style.right = "0";
+      }
+
+      function hideMenu() {
+        document.getElementById("navLinks").style.right = "-200px";
+      }
+    </script>
 
     <script src="admin.js"></script>
   </body>

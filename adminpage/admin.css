@@ -12,7 +12,7 @@
 .header {
   background-color: #0a1931;
   color: #fff;
-  padding: 15px 0;
+  padding: 20px 0;
 }
 
 .header nav {
@@ -20,13 +20,16 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  position: relative; /* Tambahkan position relative untuk referensi posisi elemen anak */
+  overflow: hidden; /* Tambahkan overflow hidden untuk mencegah overflow */
 }
 
 .header .logo-container {
-  padding: 20px;
-  margin-left: 2%;
   display: flex;
   align-items: center;
+  padding: 15px;
+  padding-left: 20px;
+  width: auto; /* Ubah lebar untuk menyesuaikan dengan konten */
 }
 
 .header .logo img {
@@ -36,8 +39,17 @@
 
 .header .brand-text {
   font-size: 18px;
-  margin-left: 5%;
+  padding: 15px;
   color: #fff; /* Warna teks putih */
+  white-space: normal; /* Membungkus teks */
+  word-wrap: break-word; /* Memastikan teks terbungkus */
+  line-height: 1.2; /* Jarak antar baris */
+  max-width: 200px; /* Ubah lebar maksimum untuk memastikan teks tidak terlalu lebar */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
 }
 
 .nav-links ul {
@@ -52,9 +64,73 @@
 }
 
 .nav-links ul li a {
-  margin-right: 50px;
   color: #fff; /* Warna teks putih */
   text-decoration: none; /* Menghapus garis bawah */
+}
+
+/* Tambahkan gaya untuk ikon menu dan animasi */
+
+nav .fa {
+  display: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Tampilan Fullscreen */
+.nav-links ul li a#logoutLink {
+  padding-right: 20px; /* Tambahkan padding kanan untuk memberikan jarak dari tepi */
+}
+
+@media (max-width: 700px) {
+  nav .fa {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed; /* Ubah posisi ke fixed */
+    background: #0a1931;
+    height: 100vh;
+    width: 200px;
+    top: 0;
+    right: -200px;
+    text-align: left;
+    z-index: 2;
+    transition: 0.5s; /* Ubah durasi transisi agar lebih cepat */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Posisikan item di tengah secara horizontal */
+  }
+
+  .nav-links ul {
+    padding: 0; /* Hapus padding agar lebih rapih */
+  }
+
+  .nav-links ul li {
+    display: block;
+    margin: 20px 0;
+    text-align: center; /* Posisikan teks di tengah */
+  }
+
+  .nav-links ul li a {
+    margin: 0; /* Hapus margin kanan */
+  }
+
+  .nav-links ul li a#logoutLink {
+    padding-right: 0; /* Hapus padding kanan saat di mobile */
+  }
+
+  .header nav .fa.fa-times {
+    display: block; /* Tampilkan ikon 'X' untuk menutup menu */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+  }
+
+  .header .brand-text {
+    display: none; /* Sembunyikan teks merek pada tampilan mobile untuk menghemat ruang */
+  }
 }
 
 .dashboard {
@@ -496,8 +572,4 @@ form button {
 /* Gaya untuk notifikasi pembaruan pengguna */
 .notification.update {
   background-color: #2196f3; /* Biru untuk pembaruan */
-}
-
-.notification.delete {
-  background-color: #f44336; /* Merah untuk penghapusan */
 }
